@@ -8,7 +8,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gorilla/handlers v1.5.1
 	github.com/gorilla/mux v1.8.0
-	github.com/lib/pq v1.10.3 // indirect
+	github.com/lib/pq v1.10.3
 	github.com/mattn/go-sqlite3 v1.14.8
 	github.com/rqlite/gorqlite v0.0.0-20210514125552-08ff1e76b22f
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
@@ -23,6 +23,6 @@ require (
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20210913210325-91d1988e44de
 	google.golang.org/genproto v0.0.0-20210201151548-94839c025ad4 // indirect
 	google.golang.org/grpc v1.35.0
-	google.golang.org/protobuf v1.26.0
+	google.golang.org/protobuf v1.27.1
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
 )
