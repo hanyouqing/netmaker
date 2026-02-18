@@ -421,7 +421,7 @@ func deleteJITGrant(w http.ResponseWriter, r *http.Request) {
 	if revokedRequest != nil {
 		network, err := logic.GetNetwork(networkID)
 		if err == nil {
-			if err := email.SendJITExpirationEmail(&grant, revokedRequest, network, true); err != nil {
+			if err := email.SendJITExpirationEmail(&grant, revokedRequest, network, true, user.UserName); err != nil {
 				slog.Warn("failed to send revocation email", "grant_id", grantID, "user", revokedRequest.UserName, "error", err)
 			}
 		}
