@@ -56,6 +56,7 @@ func (mail JITApprovedMail) GetBody(info Notification) string {
 		WithHtml(fmt.Sprintf("<li><strong>Duration:</strong> %s</li>", durationText)).
 		WithHtml(fmt.Sprintf("<li><strong>Granted At:</strong> %s</li>", formatUTCTime(mail.Grant.GrantedAt))).
 		WithHtml(fmt.Sprintf("<li><strong>Expires At:</strong> %s</li>", formatUTCTime(mail.Grant.ExpiresAt))).
+		WithHtml(fmt.Sprintf("<li><strong>Approved By:</strong> %s</li>", mail.Request.ApprovedBy)).
 		WithHtml("</ul>").
 		WithParagraph("You can now connect to this network using the Netmaker Desktop App. Your access will automatically expire when the granted duration ends.").
 		WithParagraph("Best Regards,").
