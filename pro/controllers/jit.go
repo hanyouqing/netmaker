@@ -296,10 +296,19 @@ func handleDenyRequest(w http.ResponseWriter, r *http.Request, networkID string,
 		return
 	}
 
-	if err := proLogic.DenyJITRequest(requestID, user.UserName); err != nil {
+	request, err := proLogic.DenyJITRequest(requestID, user.UserName)
+	if err != nil {
 		logic.ReturnErrorResponse(w, r, logic.FormatError(err, "badrequest"))
 		return
 	}
+
+	// Send denial email to requester
+	go func() {
+		network, _ := logic.GetNetwork(networkID)
+		if err := email.SendJITDeniedEmail(request, network); err != nil {
+			slog.Error("failed to send JIT denied notification", "error", err)
+		}
+	}()
 
 	logic.LogEvent(&models.Event{
 		Action: models.Update,
